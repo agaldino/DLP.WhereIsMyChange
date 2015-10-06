@@ -1,0 +1,11 @@
+c:\users\dev\documents\visual studio 2015\Projects\Dlp.WhereIsMyChange\Dlp.WhereIsMyChange.Desktop\bin\Debug\Dlp.WhereIsMyChange.Desktop.exe.config
+c:\users\dev\documents\visual studio 2015\Projects\Dlp.WhereIsMyChange\Dlp.WhereIsMyChange.Desktop\bin\Debug\Dlp.WhereIsMyChange.Desktop.exe
+c:\users\dev\documents\visual studio 2015\Projects\Dlp.WhereIsMyChange\Dlp.WhereIsMyChange.Desktop\bin\Debug\Dlp.WhereIsMyChange.Desktop.pdb
+c:\users\dev\documents\visual studio 2015\Projects\Dlp.WhereIsMyChange\Dlp.WhereIsMyChange.Desktop\obj\Debug\Dlp.WhereIsMyChange.Desktop.csprojResolveAssemblyReference.cache
+c:\users\dev\documents\visual studio 2015\Projects\Dlp.WhereIsMyChange\Dlp.WhereIsMyChange.Desktop\obj\Debug\Dlp.WhereIsMyChange.Desktop.Properties.Resources.resources
+c:\users\dev\documents\visual studio 2015\Projects\Dlp.WhereIsMyChange\Dlp.WhereIsMyChange.Desktop\obj\Debug\Dlp.WhereIsMyChange.Desktop.csproj.GenerateResource.Cache
+c:\users\dev\documents\visual studio 2015\Projects\Dlp.WhereIsMyChange\Dlp.WhereIsMyChange.Desktop\obj\Debug\Dlp.WhereIsMyChange.Desktop.exe
+c:\users\dev\documents\visual studio 2015\Projects\Dlp.WhereIsMyChange\Dlp.WhereIsMyChange.Desktop\obj\Debug\Dlp.WhereIsMyChange.Desktop.pdb
+c:\users\dev\documents\visual studio 2015\Projects\Dlp.WhereIsMyChange\Dlp.WhereIsMyChange.Desktop\obj\Debug\Dlp.WhereIsMyChange.Desktop.formFodao.resources
+c:\users\dev\documents\visual studio 2015\Projects\Dlp.WhereIsMyChange\Dlp.WhereIsMyChange.Desktop\bin\Debug\Dlp.WhereIsMyChange.Core.dll
+c:\users\dev\documents\visual studio 2015\Projects\Dlp.WhereIsMyChange\Dlp.WhereIsMyChange.Desktop\bin\Debug\Dlp.WhereIsMyChange.Core.pdb
