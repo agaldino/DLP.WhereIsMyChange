@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataContract\ChangeRequest.cs" />
+    <Compile Include="DataContract\ChangeResponse.cs" />
+    <Compile Include="IWhereIsMyChangeManager.cs" />
     <Compile Include="WhereIsMyChangeManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

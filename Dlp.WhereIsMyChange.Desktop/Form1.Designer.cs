@@ -38,15 +38,14 @@
             this.UxTxtProductAmount.Name = "UxTxtProductAmount";
             this.UxTxtProductAmount.Size = new System.Drawing.Size(100, 26);
             this.UxTxtProductAmount.TabIndex = 0;
-            this.UxTxtProductAmount.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // UxTxtChangeAmount
             // 
-            this.UxTxtChangeAmount.Location = new System.Drawing.Point(239, 227);
+            this.UxTxtChangeAmount.Location = new System.Drawing.Point(239, 186);
+            this.UxTxtChangeAmount.Multiline = true;
             this.UxTxtChangeAmount.Name = "UxTxtChangeAmount";
-            this.UxTxtChangeAmount.Size = new System.Drawing.Size(100, 26);
+            this.UxTxtChangeAmount.Size = new System.Drawing.Size(209, 103);
             this.UxTxtChangeAmount.TabIndex = 1;
-            this.UxTxtChangeAmount.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // UxTxtPaidAmount
             // 
@@ -76,7 +75,7 @@
             // UxLblChangeAmount
             // 
             this.UxLblChangeAmount.AutoSize = true;
-            this.UxLblChangeAmount.Location = new System.Drawing.Point(163, 233);
+            this.UxLblChangeAmount.Location = new System.Drawing.Point(163, 186);
             this.UxLblChangeAmount.Name = "UxLblChangeAmount";
             this.UxLblChangeAmount.Size = new System.Drawing.Size(53, 20);
             this.UxLblChangeAmount.TabIndex = 5;
