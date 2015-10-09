@@ -11,5 +11,6 @@ namespace Dlp.WhereIsMyChange.Core.DataContract {
 
         public List<KeyValuePair<int,long>> ChangeList { get; set; }
         public long ChangeAmount { get; set; }
+        public List<OperationReport> OperationReportList { get; set; }
     }
 }

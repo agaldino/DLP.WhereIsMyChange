@@ -16,14 +16,29 @@ namespace Dlp.WhereIsMyChange.Core
             ChangeAvailable = new List<int> { 100, 50, 25, 10, 5 , 1 };           
         }
 
-
+        
         public ChangeResponse CalculateChange(ChangeRequest changeRequest) {
-
+            // TODO: Log
             ChangeResponse changeResponse = new ChangeResponse();
+            try {
+                
+                if (changeRequest.IsValid == false) {
+                    changeResponse.OperationReportList = changeRequest.OperationReportList;
+                    return changeResponse;
+                }
+                changeResponse.ChangeAmount = this.CalculateChangeAmount(changeRequest.PaidAmount, changeRequest.ProductAmount);
 
-            changeResponse.ChangeAmount = CalculateChangeAmount(changeRequest.PaidAmount, changeRequest.ProductAmount);
+                changeResponse.ChangeList = this.GenerateChangeList(changeResponse.ChangeAmount);
 
-            changeResponse.ChangeList = GenerateChangeList(changeResponse.ChangeAmount);
+            } catch (Exception exception) {
+                // TODO: Log
+
+                OperationReport operationReport = new OperationReport();
+                operationReport.Field = "System Error";
+                operationReport.Message = exception.Message;
+                changeResponse.OperationReportList.Add(operationReport);
+            }
+            // TODO: Log
 
             return changeResponse;
         }

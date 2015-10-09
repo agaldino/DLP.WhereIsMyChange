@@ -13,7 +13,7 @@ namespace Dlp.WhereIsMyChange.Desktop {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new formFodao());
+            Application.Run(new FormFodao());
         }
     }
 }
