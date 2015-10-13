@@ -10,7 +10,7 @@ namespace Dlp.WhereIsMyChange.Core.DataContract {
         public ChangeResponse() { }
 
         public List<KeyValuePair<int,long>> ChangeList { get; set; }
-        public long ChangeAmount { get; set; }
+        public Nullable<long> ChangeAmount { get; set; }
         public List<OperationReport> OperationReportList { get; set; }
     }
 }

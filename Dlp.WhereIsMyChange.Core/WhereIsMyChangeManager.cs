@@ -28,7 +28,7 @@ namespace Dlp.WhereIsMyChange.Core
                 }
                 changeResponse.ChangeAmount = this.CalculateChangeAmount(changeRequest.PaidAmount, changeRequest.ProductAmount);
 
-                changeResponse.ChangeList = this.GenerateChangeList(changeResponse.ChangeAmount);
+                changeResponse.ChangeList = this.GenerateChangeList(changeResponse.ChangeAmount.Value);
 
             } catch (Exception exception) {
                 // TODO: Log
