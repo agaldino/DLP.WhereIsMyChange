@@ -6,15 +6,61 @@ using System.Threading.Tasks;
 using Dlp.WhereIsMyChange.Core.DataContract;
 using Dlp.WhereIsMyChange.Core.Processors;
 
-namespace Dlp.WhereIsMyChange.Core
-{
-    public class WhereIsMyChangeManager : IWhereIsMyChangeManager
-    {
+namespace Dlp.WhereIsMyChange.Core {
+    public class WhereIsMyChangeManager : IWhereIsMyChangeManager {
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="changeRequest"></param>
+        /// <returns></returns>
         public ChangeResponse CalculateChange(ChangeRequest changeRequest) {
+            // TODO: Log
+            ChangeResponse changeResponse = new ChangeResponse();
+            try {
 
-            AbstractProcessor coinProcessor = new CoinProcessor();
+                if (changeRequest.IsValid == false) {
+                    changeResponse.OperationReportList = changeRequest.OperationReportList;
+                    return changeResponse;
+                }
+                changeResponse.ChangeAmount = changeRequest.PaidAmount - changeRequest.ProductAmount;
 
-            return coinProcessor.CalculateChange(changeRequest);
+                changeResponse.ChangeList = this.CalculateChangeList(changeResponse.ChangeAmount.Value);
+
+            } catch (Exception exception) {
+                // TODO: Log
+
+                OperationReport operationReport = new OperationReport();
+                operationReport.Field = "System Error";
+                operationReport.Message = exception.Message;
+                changeResponse.OperationReportList.Add(operationReport);
+            }
+            // TODO: Log
+
+            return changeResponse;
+        }
+
+        private List<KeyValuePair<int, long>> CalculateChangeList(long changeAmount) {
+
+            long remainingChangeAmount = changeAmount;
+
+            List<KeyValuePair<int, long>> changeList = new List<KeyValuePair<int, long>>();
+
+            while (remainingChangeAmount > 0) {
+
+                // Instancia processador necessário para calcular o troco.
+                AbstractProcessor abstractProcessor = FactoryProcessor.Create(remainingChangeAmount);
+
+                List<KeyValuePair<int, long>> tempChangeList = abstractProcessor.GenerateChangeList(remainingChangeAmount);
+
+                foreach (KeyValuePair<int, long> change in tempChangeList) {
+
+                    changeList.Add(change);
+
+                    remainingChangeAmount -= (change.Value * change.Key);
+                }
+            }
+            return changeList;
         }
     }
 }

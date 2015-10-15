@@ -47,7 +47,10 @@
     <Compile Include="IWhereIsMyChangeManager.cs" />
     <Compile Include="Processors\AbstractProcessor.cs" />
     <Compile Include="Processors\BillProcessor.cs" />
+    <Compile Include="Processors\CandyProcessor.cs" />
     <Compile Include="Processors\CoinProcessor.cs" />
+    <Compile Include="Processors\FactoryProcessor.cs" />
+    <Compile Include="Processors\SilverProcessor.cs" />
     <Compile Include="WhereIsMyChangeManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
