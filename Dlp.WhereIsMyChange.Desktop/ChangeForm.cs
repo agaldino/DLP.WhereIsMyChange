@@ -50,7 +50,7 @@ namespace Dlp.WhereIsMyChange.Desktop {
 
             ChangeResponse changeResponse = whereIsMyChange.CalculateChange(changeRequest);
 
-            if (changeResponse.OperationReportList.Any()) {
+            if (changeResponse.OperationReportList != null && changeResponse.OperationReportList.Any()) {
                 foreach (OperationReport operationReport in changeResponse.OperationReportList) {
 
                     this.UxTxtChangeAmount.Text += string.Format("{0} - {1}{2}", operationReport.Field, operationReport.Message, Environment.NewLine);

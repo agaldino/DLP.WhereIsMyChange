@@ -45,6 +45,9 @@
     <Compile Include="DataContract\ChangeResponse.cs" />
     <Compile Include="DataContract\OperationReport.cs" />
     <Compile Include="IWhereIsMyChangeManager.cs" />
+    <Compile Include="Processors\AbstractProcessor.cs" />
+    <Compile Include="Processors\BillProcessor.cs" />
+    <Compile Include="Processors\CoinProcessor.cs" />
     <Compile Include="WhereIsMyChangeManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
