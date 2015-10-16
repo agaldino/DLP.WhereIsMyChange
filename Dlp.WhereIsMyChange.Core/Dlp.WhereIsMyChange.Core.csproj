@@ -30,8 +30,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dlp.Framework, Version=0.1.5736.32044, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dlp.Framework.dll.0.8.4\lib\net45\Dlp.Framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,14 +51,22 @@
     <Compile Include="DataContract\ChangeResponse.cs" />
     <Compile Include="DataContract\OperationReport.cs" />
     <Compile Include="IWhereIsMyChangeManager.cs" />
+    <Compile Include="Log\AbstractLog.cs" />
+    <Compile Include="Log\FileLog.cs" />
     <Compile Include="Processors\AbstractProcessor.cs" />
     <Compile Include="Processors\BillProcessor.cs" />
     <Compile Include="Processors\CandyProcessor.cs" />
     <Compile Include="Processors\CoinProcessor.cs" />
     <Compile Include="Processors\FactoryProcessor.cs" />
+    <Compile Include="Processors\GoldProcessor.cs" />
     <Compile Include="Processors\SilverProcessor.cs" />
+    <Compile Include="Utility\ConfigurationUtility.cs" />
+    <Compile Include="Utility\IConfigurationUtility.cs" />
     <Compile Include="WhereIsMyChangeManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

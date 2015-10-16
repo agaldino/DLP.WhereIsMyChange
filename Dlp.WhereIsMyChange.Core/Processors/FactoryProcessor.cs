@@ -16,7 +16,8 @@ namespace Dlp.WhereIsMyChange.Core.Processors {
                 new CandyProcessor(),
                 new BillProcessor(),
                 new CoinProcessor(),
-                new SilverProcessor()
+                new SilverProcessor(),
+                new GoldProcessor()
             };
 
             // Ordena lista.

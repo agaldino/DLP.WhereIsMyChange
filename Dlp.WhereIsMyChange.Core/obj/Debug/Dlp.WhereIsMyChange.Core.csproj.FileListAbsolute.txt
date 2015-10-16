@@ -3,3 +3,5 @@ C:\Users\Dev\Documents\Visual Studio 2015\Projects\Dlp.WhereIsMyChange\Dlp.Where
 C:\Users\Dev\Documents\Visual Studio 2015\Projects\Dlp.WhereIsMyChange\Dlp.WhereIsMyChange.Core\obj\Debug\Dlp.WhereIsMyChange.Core.csprojResolveAssemblyReference.cache
 C:\Users\Dev\Documents\Visual Studio 2015\Projects\Dlp.WhereIsMyChange\Dlp.WhereIsMyChange.Core\obj\Debug\Dlp.WhereIsMyChange.Core.dll
 C:\Users\Dev\Documents\Visual Studio 2015\Projects\Dlp.WhereIsMyChange\Dlp.WhereIsMyChange.Core\obj\Debug\Dlp.WhereIsMyChange.Core.pdb
+C:\Users\Dev\Documents\Visual Studio 2015\Projects\Dlp.WhereIsMyChange\Dlp.WhereIsMyChange.Core\bin\Debug\Dlp.Framework.dll
+C:\Users\Dev\Documents\Visual Studio 2015\Projects\Dlp.WhereIsMyChange\Dlp.WhereIsMyChange.Core\bin\Debug\Dlp.Framework.xml

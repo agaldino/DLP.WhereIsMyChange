@@ -9,3 +9,5 @@ C:\Users\Dev\Documents\Visual Studio 2015\Projects\Dlp.WhereIsMyChange\Dlp.Where
 C:\Users\Dev\Documents\Visual Studio 2015\Projects\Dlp.WhereIsMyChange\Dlp.WhereIsMyChange.Desktop\obj\Debug\Dlp.WhereIsMyChange.Desktop.csproj.GenerateResource.Cache
 C:\Users\Dev\Documents\Visual Studio 2015\Projects\Dlp.WhereIsMyChange\Dlp.WhereIsMyChange.Desktop\obj\Debug\Dlp.WhereIsMyChange.Desktop.exe
 C:\Users\Dev\Documents\Visual Studio 2015\Projects\Dlp.WhereIsMyChange\Dlp.WhereIsMyChange.Desktop\obj\Debug\Dlp.WhereIsMyChange.Desktop.pdb
+C:\Users\Dev\Documents\Visual Studio 2015\Projects\Dlp.WhereIsMyChange\Dlp.WhereIsMyChange.Desktop\bin\Debug\Dlp.Framework.dll
+C:\Users\Dev\Documents\Visual Studio 2015\Projects\Dlp.WhereIsMyChange\Dlp.WhereIsMyChange.Desktop\bin\Debug\Dlp.Framework.xml

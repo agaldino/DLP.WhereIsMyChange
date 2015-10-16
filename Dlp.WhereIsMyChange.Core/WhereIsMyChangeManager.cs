@@ -5,9 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 using Dlp.WhereIsMyChange.Core.DataContract;
 using Dlp.WhereIsMyChange.Core.Processors;
+using Dlp.WhereIsMyChange.Core.Log;
+using Dlp.WhereIsMyChange.Core.Utility;
 
 namespace Dlp.WhereIsMyChange.Core {
     public class WhereIsMyChangeManager : IWhereIsMyChangeManager {
+
+        IConfigurationUtility ConfigurationUtility;
+
+        AbstractLog Log;
+
+        public WhereIsMyChangeManager() {
+            this.ConfigurationUtility = new ConfigurationUtility();
+            this.Log = FileLog.GetInstance(ConfigurationUtility);
+        }
 
         /// <summary>
         /// 
@@ -15,7 +26,8 @@ namespace Dlp.WhereIsMyChange.Core {
         /// <param name="changeRequest"></param>
         /// <returns></returns>
         public ChangeResponse CalculateChange(ChangeRequest changeRequest) {
-            // TODO: Log
+            this.Log.Log(changeRequest, "Request");
+
             ChangeResponse changeResponse = new ChangeResponse();
             try {
 
@@ -29,6 +41,7 @@ namespace Dlp.WhereIsMyChange.Core {
 
             } catch (Exception exception) {
                 // TODO: Log
+                this.Log.Log(exception, "Exception");
 
                 OperationReport operationReport = new OperationReport();
                 operationReport.Field = "System Error";
@@ -36,7 +49,7 @@ namespace Dlp.WhereIsMyChange.Core {
                 changeResponse.OperationReportList.Add(operationReport);
             }
             // TODO: Log
-
+            this.Log.Log(changeResponse, "Response");
             return changeResponse;
         }
 
