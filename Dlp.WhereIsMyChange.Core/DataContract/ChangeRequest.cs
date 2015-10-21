@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Dlp.WhereIsMyChange.Core.DataContract {
-    public class ChangeRequest: AbstractRequest {
+    public sealed class ChangeRequest: AbstractRequest {
 
         public ChangeRequest() { }
 

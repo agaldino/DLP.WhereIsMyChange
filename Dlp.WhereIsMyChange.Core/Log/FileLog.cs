@@ -1,4 +1,5 @@
-﻿using Dlp.WhereIsMyChange.Core.Utility;
+﻿using Dlp.WhereIsMyChange.Core.Enums;
+using Dlp.WhereIsMyChange.Core.Utility;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -25,7 +26,7 @@ namespace Dlp.WhereIsMyChange.Core.Log {
 
         private IConfigurationUtility ConfigurationUtility;
 
-        public override void Log(object logData, string logType) {
+        public override void Log(object logData, LogTypeEnum logType) {
 
             string path = Path.GetFullPath(this.ConfigurationUtility.LogPath);
             string fullPath = Path.GetFullPath(path + "WhereIsMyChangeLog.txt");
@@ -42,7 +43,7 @@ namespace Dlp.WhereIsMyChange.Core.Log {
 
             string serializedObject = Dlp.Framework.Serializer.JsonSerialize(logData);
 
-            string content = string.Format("{0} - {1} - {2}{3}", DateTime.UtcNow, logType, serializedObject, Environment.NewLine);
+            string content = string.Format("{0} - {1} - {2}{3}", DateTime.UtcNow, logType.ToString(), serializedObject, Environment.NewLine);
 
             File.AppendAllText(fullPath, content);
         }

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Dlp.WhereIsMyChange.Core.DataContract {
-    public class ChangeResponse {
+    public sealed class ChangeResponse {
 
         public ChangeResponse() { }
 

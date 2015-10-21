@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Dlp.WhereIsMyChange.Core.DataContract {
-    public class OperationReport {
+    public sealed class OperationReport {
 
         public OperationReport() {}
 

@@ -50,8 +50,12 @@
     <Compile Include="DataContract\ChangeRequest.cs" />
     <Compile Include="DataContract\ChangeResponse.cs" />
     <Compile Include="DataContract\OperationReport.cs" />
+    <Compile Include="Enums\LoggerEnum.cs" />
+    <Compile Include="Enums\LogTypeEnum.cs" />
     <Compile Include="IWhereIsMyChangeManager.cs" />
     <Compile Include="Log\AbstractLog.cs" />
+    <Compile Include="Log\LogFactory.cs" />
+    <Compile Include="Log\WindowsEventLog.cs" />
     <Compile Include="Log\FileLog.cs" />
     <Compile Include="Processors\AbstractProcessor.cs" />
     <Compile Include="Processors\BillProcessor.cs" />

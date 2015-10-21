@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dlp.WhereIsMyChange.Core.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,6 @@ namespace Dlp.WhereIsMyChange.Core.Log {
 
         public AbstractLog() {}
 
-        public abstract void Log(object logData, string logType);
+        public abstract void Log(object logData, LogTypeEnum logType);
     }
 }

@@ -7,17 +7,18 @@ using Dlp.WhereIsMyChange.Core.DataContract;
 using Dlp.WhereIsMyChange.Core.Processors;
 using Dlp.WhereIsMyChange.Core.Log;
 using Dlp.WhereIsMyChange.Core.Utility;
+using Dlp.WhereIsMyChange.Core.Enums;
 
 namespace Dlp.WhereIsMyChange.Core {
     public class WhereIsMyChangeManager : IWhereIsMyChangeManager {
 
         IConfigurationUtility ConfigurationUtility;
 
-        AbstractLog Log;
+        private AbstractLog Log { get; set; }
 
         public WhereIsMyChangeManager() {
             this.ConfigurationUtility = new ConfigurationUtility();
-            this.Log = FileLog.GetInstance(ConfigurationUtility);
+            this.Log = LogFactory.Create(LoggerEnum.FileLog);
         }
 
         /// <summary>
@@ -26,10 +27,11 @@ namespace Dlp.WhereIsMyChange.Core {
         /// <param name="changeRequest"></param>
         /// <returns></returns>
         public ChangeResponse CalculateChange(ChangeRequest changeRequest) {
-            this.Log.Log(changeRequest, "Request");
+            this.Log.Log(changeRequest, LogTypeEnum.Information);
 
             ChangeResponse changeResponse = new ChangeResponse();
             try {
+                throw new ArgumentException("HUEHUEBRBRFESTA");
 
                 if (changeRequest.IsValid == false) {
                     changeResponse.OperationReportList = changeRequest.OperationReportList;
@@ -41,15 +43,17 @@ namespace Dlp.WhereIsMyChange.Core {
 
             } catch (Exception exception) {
                 // TODO: Log
-                this.Log.Log(exception, "Exception");
+                AbstractLog exLog = LogFactory.Create(LoggerEnum.WindowsEventLog);
+                exLog.Log(exception, LogTypeEnum.Exception);
 
                 OperationReport operationReport = new OperationReport();
                 operationReport.Field = "System Error";
                 operationReport.Message = exception.Message;
+                changeResponse.OperationReportList = new List<OperationReport>();
                 changeResponse.OperationReportList.Add(operationReport);
             }
             // TODO: Log
-            this.Log.Log(changeResponse, "Response");
+            this.Log.Log(changeResponse, LogTypeEnum.Information);
             return changeResponse;
         }
 
