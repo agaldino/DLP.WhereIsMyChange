@@ -9,7 +9,7 @@ namespace Dlp.WhereIsMyChange.Test.IntegrationTest {
     public class WhereIsMyChangeManagerTest {
         [TestMethod]
         public void CalculateChange_Success() {
-            WhereIsMyChangeManager whereIsMyChangeManager = new WhereIsMyChangeManager();
+            WhereIsMyChangeManager whereIsMyChangeManager = new WhereIsMyChangeManager(new Mock.ConfigurationUtility());
             ChangeRequest changeRequest = new ChangeRequest();
             changeRequest.PaidAmount = 200;
             changeRequest.ProductAmount = 150;
@@ -24,7 +24,7 @@ namespace Dlp.WhereIsMyChange.Test.IntegrationTest {
 
         [TestMethod]
         public void CalculateChange_NegativeValuesError() {
-            WhereIsMyChangeManager whereIsMyChangeManager = new WhereIsMyChangeManager();
+            WhereIsMyChangeManager whereIsMyChangeManager = new WhereIsMyChangeManager(new Mock.ConfigurationUtility());
             ChangeRequest changeRequest = new ChangeRequest();
             changeRequest.PaidAmount = -200;
             changeRequest.ProductAmount = -150;

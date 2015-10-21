@@ -12,12 +12,21 @@ using Dlp.WhereIsMyChange.Core.Enums;
 namespace Dlp.WhereIsMyChange.Core {
     public class WhereIsMyChangeManager : IWhereIsMyChangeManager {
 
-        IConfigurationUtility ConfigurationUtility;
+        private IConfigurationUtility _configurationUtility;
+        public IConfigurationUtility ConfigurationUtility {
+            get {
+                if (this._configurationUtility == null) {
+                    this._configurationUtility = new ConfigurationUtility();
+                }
+                return this._configurationUtility;
+            }
+            set { this._configurationUtility = value; }
+        }
 
         private AbstractLog Log { get; set; }
 
-        public WhereIsMyChangeManager() {
-            this.ConfigurationUtility = new ConfigurationUtility();
+        public WhereIsMyChangeManager(IConfigurationUtility configurationUtility) {
+            this.ConfigurationUtility = configurationUtility;
             this.Log = LogFactory.Create(LoggerEnum.FileLog);
         }
 
@@ -30,8 +39,8 @@ namespace Dlp.WhereIsMyChange.Core {
             this.Log.Log(changeRequest, LogTypeEnum.Information);
 
             ChangeResponse changeResponse = new ChangeResponse();
+
             try {
-                //throw new ArgumentException("HUEHUEBRBRFESTA");
 
                 if (changeRequest.IsValid == false) {
                     changeResponse.OperationReportList = changeRequest.OperationReportList;
@@ -44,7 +53,7 @@ namespace Dlp.WhereIsMyChange.Core {
             } catch (Exception exception) {
                 // TODO: Log
                 AbstractLog exLog = LogFactory.Create(LoggerEnum.WindowsEventLog);
-                exLog.Log(exception, LogTypeEnum.Exception);
+                exLog.Log(exception.Message, LogTypeEnum.Exception);
 
                 OperationReport operationReport = new OperationReport();
                 operationReport.Field = "System Error";
@@ -67,7 +76,6 @@ namespace Dlp.WhereIsMyChange.Core {
 
                 // Instancia processador necessário para calcular o troco.
                 AbstractProcessor abstractProcessor = FactoryProcessor.Create(remainingChangeAmount);
-
                 List<KeyValuePair<int, long>> tempChangeList = abstractProcessor.GenerateChangeList(remainingChangeAmount);
 
                 foreach (KeyValuePair<int, long> change in tempChangeList) {

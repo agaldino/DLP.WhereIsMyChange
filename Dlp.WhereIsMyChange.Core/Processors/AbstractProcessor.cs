@@ -1,4 +1,5 @@
 ﻿using Dlp.WhereIsMyChange.Core.DataContract;
+using Dlp.WhereIsMyChange.Core.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,5 +33,12 @@ namespace Dlp.WhereIsMyChange.Core.Processors {
         }
 
         internal abstract List<int> GetAvailableChange();
+
+        protected abstract void Log(DateTime data);
+
+        public void SaveLog() {
+            DateTime data = DateTime.UtcNow;
+            this.Log(data);
+        }
     }
 }

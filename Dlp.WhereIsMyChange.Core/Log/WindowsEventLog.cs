@@ -11,14 +11,18 @@ namespace Dlp.WhereIsMyChange.Core.Log {
 
         public WindowsEventLog() { }
 
-        public override void Log(object logData, LogTypeEnum logType) {
-            EventLog eventLog = new EventLog();
+        public override async void Log(object logData, LogTypeEnum logType) {
+            
+            await Task.Run(() => {
 
-            string serializedLogData =  Framework.Serializer.JsonSerialize(logData);
+                EventLog eventLog = new EventLog();                
 
-            eventLog.Source = "Dlp.WhereIsMyChange";
+                string serializedLogData = Framework.Serializer.JsonSerialize(logData);
 
-            eventLog.WriteEntry(serializedLogData, EventLogEntryType.Information);
+                eventLog.Source = "Dlp.WhereIsMyChange";
+
+                eventLog.WriteEntry(serializedLogData, EventLogEntryType.Information);
+            });            
         }
     }
 }

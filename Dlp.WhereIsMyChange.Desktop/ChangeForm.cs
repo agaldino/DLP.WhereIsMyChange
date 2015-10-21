@@ -43,7 +43,7 @@ namespace Dlp.WhereIsMyChange.Desktop {
                 return;
             }
 
-            IWhereIsMyChangeManager whereIsMyChange = new WhereIsMyChangeManager();
+            IWhereIsMyChangeManager whereIsMyChange = new WhereIsMyChangeManager(null);
 
             changeRequest.PaidAmount = paidAmount;
             changeRequest.ProductAmount = productAmount;
