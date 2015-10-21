@@ -17,11 +17,10 @@ namespace Dlp.WhereIsMyChange.Core.Log {
         }
 
         public static FileLog GetInstance(IConfigurationUtility configurationUtility) {
-            if(_FileLog == null) {
-                return new FileLog(configurationUtility);
-            } else {
-                return _FileLog;
+            if (_FileLog == null) {
+                _FileLog = new FileLog(configurationUtility);
             }
+            return _FileLog;
         }
 
         private IConfigurationUtility ConfigurationUtility;

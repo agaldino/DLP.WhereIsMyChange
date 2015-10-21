@@ -31,7 +31,7 @@ namespace Dlp.WhereIsMyChange.Core {
 
             ChangeResponse changeResponse = new ChangeResponse();
             try {
-                throw new ArgumentException("HUEHUEBRBRFESTA");
+                //throw new ArgumentException("HUEHUEBRBRFESTA");
 
                 if (changeRequest.IsValid == false) {
                     changeResponse.OperationReportList = changeRequest.OperationReportList;
