@@ -54,6 +54,7 @@
     <Compile Include="Enums\LogTypeEnum.cs" />
     <Compile Include="IWhereIsMyChangeManager.cs" />
     <Compile Include="Log\AbstractLog.cs" />
+    <Compile Include="Log\ILog.cs" />
     <Compile Include="Log\LogFactory.cs" />
     <Compile Include="Log\WindowsEventLog.cs" />
     <Compile Include="Log\FileLog.cs" />

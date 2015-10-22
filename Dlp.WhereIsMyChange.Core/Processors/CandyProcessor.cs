@@ -6,14 +6,15 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Dlp.WhereIsMyChange.Core.Processors {
+
     public class CandyProcessor : AbstractProcessor {
 
         public CandyProcessor() { }
 
         protected override void Log(DateTime data) {
-            AbstractLog log = LogFactory.Create(Enums.LoggerEnum.WindowsEventLog);
+            ILog log = LogFactory.Create(Enums.LoggerEnum.WindowsEventLog);
 
-            log.Log(data, Enums.LogTypeEnum.Warning);
+            log.Save(data, Enums.LogTypeEnum.Warning);
         }
 
         internal override List<int> GetAvailableChange() {

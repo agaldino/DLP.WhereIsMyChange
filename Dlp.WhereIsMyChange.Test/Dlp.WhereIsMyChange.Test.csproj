@@ -35,7 +35,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dlp.Framework, Version=0.1.5736.32044, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dlp.Framework.dll.0.8.4\lib\net45\Dlp.Framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -51,7 +56,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="IntegrationTest\WhereIsMyChangeManagerTest.cs" />
-    <Compile Include="Mock\ConfigurationUtility.cs" />
+    <Compile Include="Mock\ConfigurationUtilityMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitTest\LogUnitTest.cs" />
   </ItemGroup>
@@ -60,6 +65,9 @@
       <Project>{dc1a3761-f063-4591-83ff-d7a9499bbb4e}</Project>
       <Name>Dlp.WhereIsMyChange.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

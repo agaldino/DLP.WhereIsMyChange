@@ -11,9 +11,9 @@ namespace Dlp.WhereIsMyChange.Core.Processors {
         public BillProcessor() { }
 
         protected override void Log(DateTime data) {
-            AbstractLog log = LogFactory.Create(Enums.LoggerEnum.FileLog);
+            ILog log = LogFactory.Create(Enums.LoggerEnum.FileLog);
 
-            log.Log(data, Enums.LogTypeEnum.Warning);
+            log.Save(data, Enums.LogTypeEnum.Warning);
         }
 
         internal override List<int> GetAvailableChange() {

@@ -8,25 +8,22 @@ using Dlp.WhereIsMyChange.Core.Processors;
 using Dlp.WhereIsMyChange.Core.Log;
 using Dlp.WhereIsMyChange.Core.Utility;
 using Dlp.WhereIsMyChange.Core.Enums;
+using Dlp.Framework.Container;
 
 namespace Dlp.WhereIsMyChange.Core {
+
     public class WhereIsMyChangeManager : IWhereIsMyChangeManager {
 
-        private IConfigurationUtility _configurationUtility;
-        public IConfigurationUtility ConfigurationUtility {
-            get {
-                if (this._configurationUtility == null) {
-                    this._configurationUtility = new ConfigurationUtility();
-                }
-                return this._configurationUtility;
-            }
-            set { this._configurationUtility = value; }
-        }
+        private ILog Log { get; set; }
 
-        private AbstractLog Log { get; set; }
+        public WhereIsMyChangeManager() {
 
-        public WhereIsMyChangeManager(IConfigurationUtility configurationUtility) {
-            this.ConfigurationUtility = configurationUtility;
+            IocFactory.Register(
+                Component.For<IConfigurationUtility>().ImplementedBy<ConfigurationUtility>(),
+                Component.For<ILog>().ImplementedBy<FileLog>(LoggerEnum.FileLog.ToString()),
+                Component.For<ILog>().ImplementedBy<WindowsEventLog>(LoggerEnum.WindowsEventLog.ToString())
+                );
+
             this.Log = LogFactory.Create(LoggerEnum.FileLog);
         }
 
@@ -36,7 +33,7 @@ namespace Dlp.WhereIsMyChange.Core {
         /// <param name="changeRequest"></param>
         /// <returns></returns>
         public ChangeResponse CalculateChange(ChangeRequest changeRequest) {
-            this.Log.Log(changeRequest, LogTypeEnum.Information);
+            this.Log.Save(changeRequest, LogTypeEnum.Information);
 
             ChangeResponse changeResponse = new ChangeResponse();
 
@@ -52,8 +49,8 @@ namespace Dlp.WhereIsMyChange.Core {
 
             } catch (Exception exception) {
                 // TODO: Log
-                AbstractLog exLog = LogFactory.Create(LoggerEnum.WindowsEventLog);
-                exLog.Log(exception.Message, LogTypeEnum.Exception);
+                ILog exLog = LogFactory.Create(LoggerEnum.WindowsEventLog);
+                exLog.Save(exception.Message, LogTypeEnum.Exception);
 
                 OperationReport operationReport = new OperationReport();
                 operationReport.Field = "System Error";
@@ -62,7 +59,7 @@ namespace Dlp.WhereIsMyChange.Core {
                 changeResponse.OperationReportList.Add(operationReport);
             }
             // TODO: Log
-            this.Log.Log(changeResponse, LogTypeEnum.Information);
+            this.Log.Save(changeResponse, LogTypeEnum.Information);
             return changeResponse;
         }
 

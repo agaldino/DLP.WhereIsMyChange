@@ -10,6 +10,6 @@ namespace Dlp.WhereIsMyChange.Core.Log {
 
         public AbstractLog() { }
 
-        public abstract void Log(object logData, LogTypeEnum logType);
+        protected abstract void Log(object logData, LogTypeEnum logType);
     }
 }
