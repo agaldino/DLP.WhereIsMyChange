@@ -1,15 +1,11 @@
-﻿using Dlp.WhereIsMyChange.Core.DataContract;
-using Dlp.WhereIsMyChange.Core.Log;
+﻿using Dlp.WhereIsMyChange.Core.Log;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dlp.WhereIsMyChange.Core.Processors {
 
     public class CoinProcessor : AbstractProcessor {
-        
+
         public CoinProcessor() { }
 
         protected override void Log(DateTime data) {

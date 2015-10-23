@@ -24,7 +24,7 @@ namespace Dlp.WhereIsMyChange.Core {
                 Component.For<ILog>().ImplementedBy<WindowsEventLog>(LoggerEnum.WindowsEventLog.ToString())
                 );
 
-            this.Log = LogFactory.Create(LoggerEnum.FileLog);
+            this.Log = LogFactory.Create(LoggerEnum.WindowsEventLog);
         }
 
         /// <summary>

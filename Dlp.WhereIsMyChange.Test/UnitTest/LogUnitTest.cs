@@ -24,8 +24,22 @@ namespace Dlp.WhereIsMyChange.Test.UnitTest {
 
             ILog log = FileLog.GetInstance();
 
-            log.Save(DateTime.UtcNow.ToString("ddMMyyyy"), Core.Enums.LogTypeEnum.Information);
+            log.Save(DateTime.UtcNow.ToString("ddMMyyyy"), Core.Enums.LogTypeEnum.Information);         
+        }
+
+
+        [TestMethod]
+        public void TestStatic() {
+
+            PrivateType privateType = new PrivateType(typeof(FileLog));
+
+            object result = privateType.InvokeStatic("GetInstance");
+
+            FileLog log = result as FileLog;
+
+            Assert.IsTrue(log.GetType() == typeof(FileLog));            
 
         }
+
     }
 }
